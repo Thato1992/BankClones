@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BankClones.Views.BusinessPage"
+             Title="BusinessPage">
+    
+    <Grid RowDefinitions="Auto,*">
+        <!-- Header -->
+        <Grid ColumnDefinitions="*,Auto" Padding="20,10">
+            <Label Text="For Business" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource Secondary}" />
+            <Button Grid.Column="1" 
+                    Text="⋮"
+                    FontSize="20"
+                    BackgroundColor="Transparent"
+                    TextColor="{StaticResource Secondary}"
+                    Clicked="OnMenuClicked" />
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="20">
+                <!-- Welcome Section -->
+                <Label Text="Hello" TextColor="{StaticResource Accent}" FontSize="32" />
+                <Label Text="Business Client" TextColor="{StaticResource Secondary}" 
+                       FontSize="24" Margin="0,0,0,20" />
+
+                <!-- Business Quick Actions Grid -->
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*" 
+                      RowSpacing="15" ColumnSpacing="15">
+                    <!-- Row 1 -->
+                    <Button Text="Business Payments" Grid.Column="0" Grid.Row="0" />
+                    <Button Text="Salary Payments" Grid.Column="1" Grid.Row="0" />
+
+                    <!-- Row 2 -->
+                    <Button Text="Business Transfer" Grid.Column="0" Grid.Row="1" />
+                    <Button Text="View Statements" Grid.Column="1" Grid.Row="1" />
+
+                    <!-- Row 3 -->
+                    <Button Text="Business Profile" Grid.Column="0" Grid.Row="2" />
+                    <Button Text="Support" Grid.Column="1" Grid.Row="2" />
+                </Grid>
+
+                <!-- Sign In Button -->
+                <Button Text="Business Sign In" 
+                        BackgroundColor="{StaticResource Primary}"
+                        Margin="0,20" />
+
+                <!-- Business Tools -->
+                <Frame Padding="20" Margin="0,20" HasShadow="True">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Business Tools" 
+                               FontSize="20"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Secondary}" />
+
+                        <Button Text="Download Statements"
+                                Margin="0,10" />
+                        <Button Text="Transaction History"
+                                Margin="0,10" />
+                        <Button Text="Business Reports"
+                                Margin="0,10" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- QR Payment Section -->
+                <Frame Padding="20" HasShadow="True">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Business QR Payments" 
+                               HorizontalOptions="Center"
+                               FontSize="18" />
+                        <Image Source="business_qr.png"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

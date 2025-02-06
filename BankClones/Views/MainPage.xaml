@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BankClones.Views.MainPage">
+
+    <Grid RowDefinitions="Auto,*">
+        <!-- Header -->
+        <Grid ColumnDefinitions="*,Auto" Padding="20,10">
+            <Label Text="For Me" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource Secondary}" 
+                   HorizontalOptions="Center" />
+            <Button Grid.Column="1" 
+                    Text="⋮"
+                    FontSize="20"
+                    BackgroundColor="Transparent"
+                    TextColor="{StaticResource Secondary}"
+                    Clicked="OnMenuClicked" />
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="20">
+                <!-- Welcome Section -->
+                <Label Text="Hello" TextColor="{StaticResource Accent}" FontSize="50" HorizontalOptions="Center" />
+                <Label Text="Thato" TextColor="{StaticResource Secondary}" 
+                       FontSize="24" Margin="20,0,20,20" HorizontalOptions="Center" />
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10" Margin="0,20">
+                    <!-- For Me Dot -->
+                    <Frame BackgroundColor="Gray" HeightRequest="10" WidthRequest="10" CornerRadius="5" 
+                           Padding="0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnForMeClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!-- For Business Dot -->
+                    <Frame BackgroundColor="Gray" HeightRequest="10" WidthRequest="10" CornerRadius="5" 
+                           Padding="0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnForBusinessClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*" 
+      RowSpacing="15" ColumnSpacing="15">
+
+                    <!-- Row 1 -->
+                    <Frame Grid.Column="0" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" 
+           WidthRequest="150" HeightRequest="150" BackgroundColor="LightGray" 
+           HasShadow="True" CornerRadius="10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnQuickActionClicked" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image Source="prepaid.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" />
+                            <Label Text="Buy Prepaid Mobile" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" 
+           WidthRequest="150" HeightRequest="150" BackgroundColor="LightGray" 
+           HasShadow="True" CornerRadius="10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnQuickActionClicked" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image Source="electricity.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" />
+                            <Label Text="Buy Electricity" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Row 2 -->
+                    <Frame Grid.Column="0" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" 
+           WidthRequest="150" HeightRequest="150" BackgroundColor="LightGray" 
+           HasShadow="True" CornerRadius="10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnQuickActionClicked" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image Source="beneficiary.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" />
+                            <Label Text="Pay Beneficiary" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Frame Grid.Column="1" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" 
+           WidthRequest="150" HeightRequest="150" BackgroundColor="LightGray" 
+           HasShadow="True" CornerRadius="10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnQuickActionClicked" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image Source="tranfers.jpg" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" />
+                            <Label Text="Transfer Money" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Row 3 -->
+                    <Frame Grid.Column="0" Grid.Row="2" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" 
+                           WidthRequest="150" HeightRequest="150" Grid.ColumnSpan="2" BackgroundColor="LightGray" 
+                           Margin="15,0,0,0"
+                           HasShadow="True" CornerRadius="10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnQuickActionClicked" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                            <Image Source="send_cash.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" />
+                            <Label Text="Send Cash" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+
+                </Grid>
+
+
+                <!-- Sign In Button -->
+                <Button Text="Sign In" 
+                        BackgroundColor="{StaticResource Primary}"
+                        Margin="0,20" Clicked="OnSignInClicked"/>
+
+                <!-- Scan to Pay -->
+                <Frame Padding="20" HasShadow="True" HorizontalOptions="Center">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Scan to Pay" 
+                               HorizontalOptions="Center"
+                               FontSize="18" />
+                        <Image Source="qr_code.png"
+                               HeightRequest="20"
+                               WidthRequest="20"
+                               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

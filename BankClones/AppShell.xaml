@@ -1,0 +1,21 @@
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:BankClones.Views"
+       x:Class="BankClones.AppShell"
+       FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="For Me" Icon="personal_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
+        </Tab>
+        <Tab Title="For Business" Icon="business_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate views:BusinessPage}" />
+        </Tab>
+    </TabBar>
+
+    <!-- Register routes for navigation -->
+    <ShellContent Route="remote_banking"
+                  ContentTemplate="{DataTemplate views:RemoteBankingPage}" />
+    <ShellContent Route="about"
+                  ContentTemplate="{DataTemplate views:AboutPage}" />
+</Shell>
